@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="lib/swiper.min.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/swiper.min.js"></script>
+    <script src="lib/swiper.animate.min.js"></script>
+    <link rel="stylesheet" href="lib/animate.min.css">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height:100%;
+            font-size:40px;
+            color: white;
+            text-align: center;
+        }
+        .swiper-container{
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-wrapper{
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide{
+            width: 100%;
+            height: 100%;
+        }
+        .img1{background:url("img/1.jpg") no-repeat center top;background-size: cover;color: blue}
+        .img1 p:nth-of-type(1){
+            position: absolute;
+            top: 70px;
+            right:40px;
+        }
+        .img1 p:nth-of-type(2){
+            position: absolute;
+            top: 120px;
+            right:30px;
+        }
+        .img2{background:url("img/10.jpeg") no-repeat -500px top;background-size: cover;}
+        .img2 p{
+            position: absolute;
+            bottom: 100px;
+            right: 50px;
+        }
+        .img3{background:url("img/3.jpg") no-repeat center top; background-size: cover;font-size: 30px;}
+        .img3 p:nth-of-type(1){
+            position: absolute;
+            top: 350px;
+            left: 40px;
+        }
+         .img3 p:nth-of-type(2){
+            position: absolute;
+            top: 500px;
+            left: 40px;
+        }
+         .img3 p:nth-of-type(3){
+            position: absolute;
+            top: 650px;
+            left: 40px;
+        }
+        .img4{background:url("img/12.jpg") no-repeat center top; background-size: cover;font-size: 40px;}
+        .img4 p{
+            position: absolute;
+            top: 120px;
+            left: 30px;
+            font-size: 40px;
+        }
+        .img5{background:url("img/5.jpg") no-repeat center top; background-size: cover;color: blue;}
+        .img5 p:nth-of-type(1){
+            position: absolute;
+            top: 200px;
+            left: 40px;
+            font-size: 35px;
+        }
+        .img5 p:nth-of-type(2){
+            position: absolute;
+            top: 280px;
+            left: 40px;
+            font-size: 35px;
+        }
+        .img6{background:url("img/6.jpg") no-repeat center top; background-size: cover;}
+        .img6 p:nth-of-type(1){
+            position: absolute;
+            top: 200px;
+            left: 50px;
+            background-color: green;
+        }
+        .img6 p:nth-of-type(2){
+            position: absolute;
+            top: 450px;
+            left: 50px;
+            background-color: green;
+        }
+         .img6 p:nth-of-type(3){
+            position: absolute;
+            top: 700px;
+            left: 50px;
+            font-size: 60px;
+            background-color: green;
+        }
+        .img7{background:url("img/19.jpg") no-repeat -350px top; background-size: cover;}
+
+
+        .img8{background:url("img/7.jpg") no-repeat center top; background-size: cover;}
+        .img8 p:nth-of-type(1){
+            position: absolute;
+            top: 30px;
+            left: 20px;
+        }
+        .img8 p:nth-of-type(2){
+            position: absolute;
+            top: 80px;
+            left: 50px;
+        }
+        #music{
+            width:60px;
+            height:60px;
+            background:url(img/music1.png) no-repeat;
+            background-size:cover;
+            position:absolute;
+            right:10px;
+            top:10px;
+             z-index:2
+           
+        }
+        #music.currentActive{ 
+            animation:1s linear infinite musicMove;
+             -Webkit-animation:1s linear infinite musicMove;
+        }
+        @keyframes musicMove{
+            0%{ transform:rotate(0);}
+            100%{ transform:rotate(360deg);}
+        }
+        @-Webkit-keyframes musicMove{
+            0%{-webkit-transform:rotate(0);}
+            100%{ -webkit-transform:rotate(360deg);}
+        }
+        #arrow1{
+            width:60px;
+            height:52px;
+            background:url(img/arr.png) no-repeat center;
+            position:absolute;
+            bottom:10px;
+            left:50%;
+            margin-left:-30px;
+            z-index: 10;
+            animation:1s linear infinite arrowMove;
+            -Webkit-animation:1s linear infinite arrowMove;
+        }
+        #arrow2{
+            width:60px;
+            height:52px;
+            background:url(img/arr.png) no-repeat center;
+            position:absolute;
+            bottom:30px;
+            left:50%;
+            margin-left:-30px;
+            z-index: 10;
+            animation:1s linear infinite arrowMove;
+            -Webkit-animation:1s linear infinite arrowMove;
+        }
+
+        @keyframes arrowMove{
+            0%{ transform:translateY(0); opacity:0;}
+            60%{ transform:translateY(-30px); opacity:1;}
+            100%{ transform:translateY(-50px); opacity:0;}
+        }
+          @-Webkit-keyframes arrowMove{
+            0%{ -webkit-transform:translateY(0); opacity:0;}
+            60%{ -webkit-transform:translateY(-30px); opacity:1;}
+            100%{ -webkit-transform:translateY(-50px); opacity:0;}
+        }
+
+        #loading{
+        width: 100%;
+        height: 100%;
+        background: white;
+        position: relative;
+        left: 0;
+        top: 0;
+        z-index: 100;
+    }
+    
+    #loading ul {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 120px;
+        margin-left: -60px;
+        list-style: none;
+    }
+    
+    #loading li {
+        width: 10px;
+        height: 60px;
+        background: #0F0;
+        float: left;
+        margin: 0 5px;
+        animation: 1.8s linear infinite loadingMove;
+        -webkit-animation: 1.8s linear infinite loadingMove;
+       
+    }
+    
+    @keyframes loadingMove {
+        0% {
+            transform: scaleY(1);
+        }
+        50% {
+            transform: scaleY(0);
+        }
+        100% {
+            transform: scaleY(1);
+        }
+    }
+    @-webkit-keyframes loadingMove {
+        0% {
+            -webkit-transform: scaleY(1);
+        }
+        50% {
+            -webkit-transform: scaleY(0);
+        }
+        100% {
+            -webkit-transform: scaleY(1);
+        }
+    }
+    
+    #loading li:nth-of-type(1) {
+        animation-delay: -0.3s;
+        -webkit-animation-delay: -0.3s;
+    }
+    
+    #loading li:nth-of-type(2) {
+        animation-delay: -0.6s;
+        -webkit-animation-delay: -0.6s;
+    }
+    
+    #loading li:nth-of-type(3) {
+        animation-delay: -0.9s;
+        -webkit-animation-delay: -0.9s;
+    }
+    
+    #loading li:nth-of-type(4) {
+        animation-delay: -1.2s;
+        -webkit-animation-delay: -1.2s;
+    }
+    
+    #loading li:nth-of-type(5) {
+        animation-delay: -1.5s;
+        -webkit-animation-delay: -1.5s;
+    }
+    
+    #loading li:nth-of-type(6) {
+        animation-delay: -1.8s;
+        -webkit-animation-delay: -1.8s;
+    }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+<div id="loading">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    <div class="swiper-wrapper">
+    <div class="swiper-slide img1">
+    <p class="ani"
+    swiper-animate-effect="fadeInRight"
+    swiper-animate-duration="0.5s" 
+    swiper-animate-delay="0.5s">已经忘记</p>
+     <p class="ani"
+    swiper-animate-effect="fadeInLeft"
+    swiper-animate-duration="0.5s" 
+    swiper-animate-delay="1s">从何时开始...</p>
+    </div>
+        <div class="swiper-slide img2">
+    <p class="ani"
+    swiper-animate-effect="fadeInRight"
+    swiper-animate-duration="0.5s" 
+    swiper-animate-delay="0.5s">路飞 帮帮我</p>
+        </div>
+        <div class="swiper-slide img3">
+    <p class="ani"
+    swiper-animate-effect="fadeInLeft"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="0.5s">如果真的能让我许下一个愿望的话…
+    </p>
+     <p class="ani"
+    swiper-animate-effect="fadeInRight"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="1.5s">
+    我想要……我想要活下去！
+    </p>
+     <p class="ani"
+    swiper-animate-effect="fadeInLeft"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="3s">
+    把我也一起带到海上吧！</p>
+        </div>
+        <div class="swiper-slide img4">
+    <p class="ani"
+    swiper-animate-effect="fadeInLeft"
+    swiper-animate-duration="0.5s" 
+    swiper-animate-delay="0.5s">
+    发生了什么？！</p>
+    </div>
+        <div class="swiper-slide img5">
+    <p class="ani"
+    swiper-animate-effect="fadeInDown"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="0.5s">
+    梅丽:</p>
+    <p class="ani"
+    swiper-animate-effect="fadeInUp"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="0.5s">
+    对不起本想载大家到更远的地方</p>
+        </div>
+        <div class="swiper-slide img6">
+    <p class="ani"
+    swiper-animate-effect="fadeInLeft"
+    swiper-animate-duration="0.5s" 
+    swiper-animate-delay="0.5s">感谢这片大海</p>
+    <p class="ani"
+    swiper-animate-effect="fadeInLeft"
+    swiper-animate-duration="0.5s" 
+    swiper-animate-delay="1s">让我遇见</p>
+    <p class="ani"
+    swiper-animate-effect="fadeInLeft"
+    swiper-animate-duration="0.5s" 
+    swiper-animate-delay="1.5s">你们</p>
+        </div>
+        <div class="swiper-slide img7">
+    <p class="ani"
+    swiper-animate-effect="fadeInDown"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="0.5s">
+    当再次相见的时候</p>
+    <p class="ani"
+    swiper-animate-effect="fadeInUp"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="0.5s">
+    ......
+    </p>
+        </div>
+        <div class="swiper-slide img8">
+    <p class="ani"
+    swiper-animate-effect="bounceOutLeft"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="0.5s">故事还在继续...</p>
+     <p class="ani"
+    swiper-animate-effect="bounceOutLeft"
+    swiper-animate-duration="1s" 
+    swiper-animate-delay="1.5s">See you agin</p>
+        </div>
+    </div>
+    <div id="arrow1"></div>
+    <div id="arrow2"></div>
+    <div id="music" class="currentActive"></div>
+</div>
+   
+    <audio id="a1" autoplay src="music/TRIPLANE%20-%20Dear%20friends.mp3" loop></audio>
+<script>
+    var desW = 640;
+    var desH = 960;
+    var viewH = $(window).height();
+    var scale = viewH / desH;
+    document.write('<meta name="viewport" content="width=device-width,initial-scale='+scale+',minimum-scale='+scale+',maximum-scale='+scale+',user-scalable=no">');
+
+    var swiper = new Swiper('.swiper-container',{
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction:"vertical",
+        loop:true,
+        paginationType: 'progress',
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+            swiperAnimateCache(swiper); //隐藏动画元素 
+            swiperAnimate(swiper); //初始化完成开始动画
+             }, 
+            onSlideChangeEnd: function(swiper){ 
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        } 
+    });
+
+    var $music = $('#music');
+    function bindMusic(){
+        var oA = $('#a1').get(0);
+        $music.on('touchstart',function(){
+            if( oA.paused ){
+                oA.play();
+                $(this).attr('class','currentActive');
+            }
+            else{
+                oA.pause();
+                $(this).attr('class','');
+            }
+        });
+    }
+    
+bindMusic();
+
+var $loading = $('#loading');
+function bindLoading() {
+
+            var arr = ['1.jpg', '3.jpg', '12.jpg', '5.jpg', '6.jpg','19.jpg','7.jpg','10.jpeg','arr.png','music1.png'];
+            var iNow = 0;
+
+            for (var i = 0; i < arr.length; i++) {
+                var yImg = new Image();
+                yImg.onload = function() {
+                    iNow++;
+                    if (iNow == arr.length) {
+                        setTimeout(function() {
+                            $loading.remove();
+                        }, 1000);
+                    }
+                };
+                yImg.onerror = function() {
+                    $loading.remove();
+                };
+                yImg.src = 'img/' + arr[i];
+            }
+
+        }
+bindLoading();
+</script>
+</html>
